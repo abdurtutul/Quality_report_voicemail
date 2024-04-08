@@ -1,0 +1,61 @@
+        google.charts.load('current', {
+            packages: ['corechart', 'bar']
+        });
+        google.charts.setOnLoadCallback(drawAnnotations);
+
+        function drawAnnotations() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Module name', 'Defects', {
+                    type: 'string',
+                    role: 'annotation'
+                }, {
+                    role: 'style'
+                }],
+                ['Module 2', 43, '43', '#46569e'],
+                ['Log In & Log Out & Sign In', 42, '42', '#4780be'],
+                ['Module 7', 33, '33', '#46569e'],
+                ['Module 11', 31, '31', '#4780be'],
+                ['Module 5', 28, '28', '#46569e'],
+                ['Module 4', 24, '24', '#4780be'],
+                ['Module 6', 16, '16', '#46569e'],
+                ['Module 3', 15, '15', '#4780be'],
+                ['Module 10', 12, '12', '#46569e'],
+                ['Module 8', 9, '9', '#4780be'],
+                ['Module 9', 7, '7', '#46569e'],
+                ['Module 1', 7, '7', '#4780be'],
+                ['Facebook / Twitter / Other Integration', 6, '6', '#46569e']
+            ]);
+
+            var options = {
+                colors: ['#46569e', '#4780be'],
+                chartArea: {
+                    width: '70%'
+                },
+                bar: {
+                    groupWidth: "75%"
+                },
+                annotations: {
+                    alwaysOutside: false,
+                    textStyle: {
+                        fontSize: 9,
+                    },
+                },
+                tooltip: {
+                    trigger: 'none'
+                },
+                fontName: 'ALSShlange_reg',
+                fontSize: 9,
+                legend: {
+                    position: "none"
+                },
+                hAxis: {
+                    gridlines: {
+                        color: '#333',
+                        minSpacing: 20
+                    },
+                },
+            };
+            var chart = new google.visualization.BarChart(document.getElementById('barchart_modules'));
+            chart.draw(data, options);
+        }

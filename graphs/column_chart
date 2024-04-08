@@ -1,0 +1,46 @@
+google.charts.load('current', {
+    'packages': ['bar']
+});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+        ['Platform', 'Defects'],
+        ['Android', 80],
+        ['Others', 20]
+    ]);
+
+    var options = {
+        chartArea: {
+            left: 0,
+            top: 0,
+            width: '95%',
+            height: '100%'
+        },
+        colors: ['#46569e'],
+        legend: {
+            position: 'none'
+        },
+        bars: 'verical',
+        fontName: 'ALSShlange_reg',
+        fontSize: 10,
+        axes: {
+            x: {
+                0: {
+                    side: 'top',
+                    label: ''
+                }
+            },
+            y: {
+                0: {
+                    side: 'left',
+                    label: ''
+                }
+            }
+        },
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+    chart.draw(data, google.charts.Bar.convertOptions(options));
+};

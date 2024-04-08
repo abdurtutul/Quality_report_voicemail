@@ -1,0 +1,60 @@
+     google.charts.load('current', {
+            'packages': ['bar']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+////////////////////////////////////////////////////////////////
+///////////////ИНФОРМАЦИЯ ОТОБРАЖЕННАЯ НА ГРАФИКЕ///////////////
+                ['Module name', 'Defects'],
+                ["Module 2", 43],
+                ["Authorization", 42],
+                ["Module 7", 33],
+                ["Module 11", 31],
+                ["Module 5", 28],
+                ["Module 4", 24],
+                ["Module 6", 16],
+                ["Module 3", 15],
+                ["Module 10", 12],
+                ["Module 8", 9],
+                ["Module 9", 7],
+                ["Module 1", 7],
+                ["Socials", 6]
+//////////////////////////////////////////////////////////////
+            ]);
+
+            var options = {
+                chartArea: {
+                    left: 0,
+                    top: 0,
+                    width: '95%',
+                    height: '100%'
+                },
+                colors: ['#46569e'],
+                legend: {
+                    position: 'none'
+                },
+                bars: 'horizontal',
+                fontName: 'ALSShlange_reg',
+                fontSize: 10,
+                axes: {
+                    x: {
+                        0: {
+                            side: 'top',
+                            label: ''
+                        }
+                    },
+                    y: {
+                        0: {
+                            side: 'left',
+                            label: ''
+                        }
+                    }
+                },
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('barchart_modules'));
+
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        };

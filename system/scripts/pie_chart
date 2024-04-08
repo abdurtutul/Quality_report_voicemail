@@ -1,0 +1,42 @@
+        google.load("visualization", "1", {
+            packages: ["corechart"]
+        });
+        google.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Defects', 'Defects'],
+                ['Critical', 8],
+                ['Major', 12],
+                ['Average', 21],
+                ['Minor', 44],
+                ['Enhancement', 15],
+            ]);
+            var options = {
+                chartArea: {
+                    left: 0,
+                    top: 0,
+                    width: '95%',
+                    height: '100%'
+                },
+                tooltip: {
+                    trigger: 'none'
+                },
+                colors: ['#eb342e', '#eb5299', '#46569e', '#4780be', '#b0e0f2'],
+                fontName: 'ALSShlange_reg',
+                pieHole: 0.5,
+                pieSliceTextStyle: {
+                    color: 'white',
+                },
+                legend: {
+                    position: 'left',
+                    alignment: 'center',
+                    textStyle: {
+                        color: '#747474',
+                        fontSize: 10
+                    },
+                },
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('donut_single'));
+            chart.draw(data, options);
+        }
